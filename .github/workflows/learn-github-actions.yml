@@ -1,4 +1,5 @@
 name: test-pr-creation
+
 on: 
   repository_dispatch: 
     types:
@@ -8,12 +9,15 @@ jobs:
   echo-payload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+      - name: 'Setup Node'
+        uses: actions/setup-node@v1
         with: 
           node-version: '15'
-      - run: 'npm install'
-      - run: 'node ./pr-creation/index.js'
+      - name: 'NPM Install'
+        run: 'npm install'
+      - name: 'Create PR'
+        run: 'node ./pr-creation/index.js'
         with:
-          myToken: "${{ secrets.GITHUB_TOKEN }}"
-
+          token: ${{ secrets.GITHUB_TOKEN }}

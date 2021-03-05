@@ -4,8 +4,8 @@
   const simpleGit = require('simple-git');
   const fs = require('fs')
 
-  const myToken = core.getInput('myToken');
-  const octokit = github.getOctokit(myToken)
+  const token = core.getInput('token');
+  const octokit = github.getOctokit(token)
   const git = simpleGit();
 
   const now = new Date().getTime()
