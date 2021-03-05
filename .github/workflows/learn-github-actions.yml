@@ -20,6 +20,9 @@ jobs:
       - name: 'NPM Install'
         run: 'npm install'
       - name: 'Create PR'
-        run: 'node ./pr-creation/index.js'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          node ./pr-creation/index.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
