@@ -8,9 +8,12 @@
 
   const now = new Date().getTime()
   const branchname = `beep-boop-${now}`
+  const repoOwner = 'annarankin'
+  const repoName = 'more-impostor-syndrome'
+
   const mainBranchInfo = await octokit.repos.getBranch({
-    owner: 'annarankin',
-    repo: 'more-impostor-syndrome',
+    owner: repoOwner,
+    repo: repoName,
     branch: 'main'
   })
   const baseCommitName = mainBranchInfo.data.commit.sha
@@ -22,8 +25,8 @@
   await git.push('origin', branchname)
 
   octokit.pulls.create({
-    owner: 'annarankin',
-    repo: 'more-impostor-syndrome',
+    owner: repoOwner,
+    repo: repoName,
     title: `Test PR: ${branchname}`,
     head: branchname,
     base: 'main',
