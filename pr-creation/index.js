@@ -8,6 +8,8 @@
 
   const now = new Date().getTime()
   const branchname = `beep-boop-${now}`
+  const commitHistory = await git.log({ from: 'head', to: 'main@{1}' })
+  const branchname = commitHistory.latest.hash
 
   await git.checkoutBranch(branchname, '5fc2416')
   fs.writeFileSync(`./${branchname}.txt`, "HALLO WORLED")
