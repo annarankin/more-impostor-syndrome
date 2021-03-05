@@ -9,9 +9,9 @@
   const now = new Date().getTime()
   const branchname = `beep-boop-${now}`
   const commitHistory = await git.log({ from: 'head', to: 'main@{1}' })
-  const branchname = commitHistory.latest.hash
+  const baseCommitName = commitHistory.latest.hash
 
-  await git.checkoutBranch(branchname, '5fc2416')
+  await git.checkoutBranch(branchname, baseCommitName)
   fs.writeFileSync(`./${branchname}.txt`, "HALLO WORLED")
   await git.add([`./${branchname}.txt`])
   await git.commit('Testing creating a commit')
