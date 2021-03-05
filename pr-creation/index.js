@@ -8,8 +8,12 @@
 
   const now = new Date().getTime()
   const branchname = `beep-boop-${now}`
-  const commitHistory = await git.log({ from: 'head', to: 'head@{1}' })
-  const baseCommitName = commitHistory.latest.hash
+  const mainBranchInfo = await octokit.repos.getBranch({
+    owner: 'annarankin',
+    repo: 'more-impostor-syndrome',
+    branch: 'main'
+  })
+  const baseCommitName = mainBranchInfo.data.commit.sha
 
   await git.checkoutBranch(branchname, baseCommitName)
   fs.writeFileSync(`./${branchname}.txt`, "HALLO WORLED")
