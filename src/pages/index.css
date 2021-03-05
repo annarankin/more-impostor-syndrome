@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: pink;
+}
+body * {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.btn {
+  @apply text-center rounded text-base sm:text-lg md:text-2xl border-b-8 border-2 text-white p-4 inline-block shadow-md m-6;
+}
+
+.btn.purple {
+  @apply border-purple-900 bg-purple-500 hover:bg-purple-600 active:bg-pink-700;
+}
+
+.btn.pink {
+  @apply border-pink-900 bg-pink-500 hover:bg-pink-600 active:bg-pink-500;
+}
+
+.nav-link {
+  @apply flex items-center px-2 pt-3 pb-1 font-normal box-border border-transparent border-b-8 hover:bg-purple-700;
+}
+.nav-link .nav-icon {
+  @apply mr-2 font-thin;
+}
+
+nav.nav {
+  @apply flex bg-purple-900 text-white font-bold text-base lg:text-lg px-6
+}
