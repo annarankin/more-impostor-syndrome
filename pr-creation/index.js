@@ -1,11 +1,9 @@
 (async () => {
-  const core = require('@actions/core');
   const github = require('@actions/github');
   const simpleGit = require('simple-git');
   const fs = require('fs')
 
-  const token = core.getInput('token');
-  const octokit = github.getOctokit(token)
+  const octokit = github.getOctokit(process.env.GITHUB_TOKEN)
   const git = simpleGit();
 
   const now = new Date().getTime()

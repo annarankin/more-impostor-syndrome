@@ -19,5 +19,5 @@ jobs:
         run: 'npm install'
       - name: 'Create PR'
         run: 'node ./pr-creation/index.js'
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
