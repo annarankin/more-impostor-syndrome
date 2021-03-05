@@ -5,8 +5,9 @@ on:
       - echo-payload
 
 jobs:
-  check-bats-version:
+  echo-payload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: 'echo "Stuff: ${{github.event.client_payload}}"'
+      - run: 'echo "Stuff: ${{github.event.client_payload.hello}}"'
+
