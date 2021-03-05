@@ -9,5 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: 'echo "Stuff: ${{github.event.client_payload.hello}}"'
+      - uses: actions/setup-node@v1
+        with: 
+          node-version: '15'
+      - run: 'npm install @actions/http-client'
+      - run: 'node ./pr-creation/index.js'
 
