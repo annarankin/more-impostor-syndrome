@@ -8,7 +8,7 @@
 
   const now = new Date().getTime()
   const branchname = `beep-boop-${now}`
-  const commitHistory = await git.log({ from: 'head', to: 'main@{1}' })
+  const commitHistory = await git.log({ from: 'head', to: 'head@{1}' })
   const baseCommitName = commitHistory.latest.hash
 
   await git.checkoutBranch(branchname, baseCommitName)
