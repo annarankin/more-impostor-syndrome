@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v1
         with: 
           node-version: '15'
-      - run: 'npm install @actions/http-client'
+      - run: 'npm install'
       - run: 'node ./pr-creation/index.js'
+        with:
+          myToken: "${{ secrets.GITHUB_TOKEN }}"
 
